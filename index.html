@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Covid19 - KSA</title>
+    <link href="static/fontawesome-free-5.11.2-web/css/all.css" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="static/chart.js/dist/Chart.js"></script>
+    <style>
+        .center {
+            margin: 0 auto;
+        }
+
+        .card {
+            padding: 0;
+        }
+
+        body {
+            --table-width: 100%; /* Or any value, this will change dinamically */
+        }
+
+        tbody {
+            display: block;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        thead, tbody tr {
+            display: table;
+            width: var(--table-width);
+            table-layout: fixed;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-light bg-dark mb-3 text-center">
+    <a class="navbar-brand " href="/" style="color:white">
+        <img src="static/logo.jpg" width="auto" height="30" class="d-inline-block align-top" alt="KSA - Flag"> <strong>
+        Covid19 - KSA</strong> </a>
+</nav>
+<div class="container-fluid ">
+
+
+    <div class=" card-group">
+        <div class="col-lg-9 col-md-12 card bg-dark">
+            <div class="card-header">
+                <div class="d-flex justify-content-between" style="color:white">
+                    <div>
+                        Chart Display
+                    </div>
+
+                    <div id="chart1-header">
+                        Last Updated: [
+                    </div>
+
+                </div>
+
+                <div class="input-group mt-3 col-lg-4 col-sm-12" style="margin: 0;padding:0">
+                    <select class="custom-select" id="inputGroupSelect02" onchange="chooseChart(this.value)">
+                        <option selected disabled>Choose Chart...</option>
+                        <option value="0">All</option>
+                        <option value="1">Daily Accumulative Cases</option>
+                        <option value="2">Daily Cases</option>
+                        <option value="3">Daily Accumulative Recovered</option>
+                        <option value="4">Daily Recovered</option>
+                        <option value="5">Daily Accumulative Death</option>
+                        <option value="6">Daily Death</option>
+                        <option value="7">Cases By Cities</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="card-body">
+                <div>
+
+                    <canvas id="chart0" width="400" height="200"></canvas>
+                    <canvas id="chart1" width="400" height="200" style="display:none"></canvas>
+                    <canvas id="chart2" width="400" height="200" style="display:none"></canvas>
+                    <canvas id="chart3" width="400" height="200" style="display:none"></canvas>
+                    <canvas id="chart4" width="400" height="200" style="display:none"></canvas>
+                    <canvas id="chart5" width="400" height="200" style="display:none"></canvas>
+                    <canvas id="chart6" width="400" height="200" style="display:none"></canvas>
+                    <canvas id="chart7" width="400" height="200" style="display:none"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-12 card ">
+            <div class="card-header">
+                Total
+            </div>
+            <div class="card-body" style="margin-top: auto;margin-bottom: auto">
+
+                <div class="card text-white bg-success mb-3" style="">
+                    <div class="card-body" id="stat-recovered">
+                        Recovered:
+                    </div>
+                </div>
+                <div class="card text-white bg-warning mb-3" style="">
+                    <div class="card-body" id="stat-active">
+                        Active:
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mb-3" style="">
+                    <div class="card-body" id="stat-death">
+                        Deaths:
+                    </div>
+                </div>
+                <div class="card text-white bg-info mb-3" style="">
+                    <div class="card-body" id="stat-average">
+                        Average Infections(Daily):
+                    </div>
+                </div>
+                <div class="card text-white bg-dark mb-3" style="">
+                    <div class="card-body" id="stat-city">
+                        Infected Cities:
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3" style="">
+                    <div class="card-body" id="stat-high-city">
+                        Highest City:
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <table class="table table-dark table-sm table-hover text-center">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">New Cases</th>
+                    <th scope="col">Changes</th>
+                    <th scope="col">Percentage</th>
+                </tr>
+                </thead>
+                <tbody id="table1">
+
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-6 col-md-12 ">
+            <div class="card bg-dark">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between" style="color:white">
+                        <div>
+                            Data by Date
+                        </div>
+                        <div class="input-group col-lg-4 col-sm-12" style="margin: 0;padding:0">
+                            <select class="custom-select" id="option_chart9" onchange="chooseDate(this.value)">
+                                <option selected disabled>Choose Date...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="chart9" width="400" height="200"></canvas>
+                    <hr>
+
+                    <div class="d-flex justify-content-between" id="stat-data-date" style="display: none">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+    var xhttp = new XMLHttpRequest();
+    var data
+    var object
+    var json_data
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            json_data = JSON.parse(this.responseText);
+            var sum = 0
+            //alert(Object.keys(data.casesTimeline))
+            data = [Object.keys(json_data).length]
+            label = [Object.keys(json_data).length]
+
+            for (var i = Object.keys(json_data.casesTimeline).length - 1; i >= 0; i--) {
+                //object[i] = (Object.keys(data.casesTimeline[i]).length)
+                label[i] = json_data.casesTimeline[i].recordedDate
+                sum += json_data.casesTimeline[i].casesReported
+                data[i] = sum
+            }
+            cities = {city: {}}
+            for (var i = 0; i < Object.keys(json_data.casesTimeline).length; i++) {
+                if (json_data.casesTimeline[i].casesByCity) {
+                    Object.keys(json_data.casesTimeline[i].casesByCity).forEach((key, value) => {
+                            if (cities.city[key]) {
+                                cities.city[key] += json_data.casesTimeline[i].casesByCity[key]
+                            } else {
+                                cities.city[key] = json_data.casesTimeline[i].casesByCity[key]
+                            }
+                        }
+                    )
+
+                }
+            }
+
+
+            //------------------------------------- Table -------------------------------------
+
+
+            for (var i = 0; i < Object.keys(json_data.casesTimeline).length; i++) {
+                table_days = []
+                table_total = []
+
+                if (i < Object.keys(json_data.casesTimeline).length - 1) {
+                    if (json_data.casesTimeline[i].casesReported - json_data.casesTimeline[i + 1].casesReported > 0) {
+                        document.getElementById("table1").innerHTML += "<tr>\n" +
+                            "                <td scope=\"row\">" + (i + 1) + "</td>\n" +
+                            "                <th> " + json_data.casesTimeline[i].recordedDate + "</th>\n" +
+                            "                <td>" + json_data.casesTimeline[i].casesReported + " </td>\n" +
+                            "                <td><i class=\"fas fa-caret-up\" style='color: red'></i> " + (json_data.casesTimeline[i].casesReported - json_data.casesTimeline[i + 1].casesReported) + "</td>\n" +
+                            "                <td>" + Math.ceil(Math.abs((json_data.casesTimeline[i].casesReported - json_data.casesTimeline[i + 1].casesReported) / json_data.casesTimeline[i + 1].casesReported) * 100) + "% </td>\n" +
+                            "\n" +
+                            "            </tr>"
+                    } else if (json_data.casesTimeline[i].casesReported - json_data.casesTimeline[i + 1].casesReported < 0) {
+                        document.getElementById("table1").innerHTML += "<tr>\n" +
+                            "                <td scope=\"row\">" + i + "</td>\n" +
+                            "                <th> " + json_data.casesTimeline[i].recordedDate + "</th>\n" +
+                            "                <td>" + json_data.casesTimeline[i].casesReported + " </td>\n" +
+                            "                <td><i class=\"fas fa-caret-down\" style='color: green'></i> " + (json_data.casesTimeline[i].casesReported - json_data.casesTimeline[i + 1].casesReported) + "</td>\n" +
+                            "                <td>" + Math.ceil(Math.abs((json_data.casesTimeline[i].casesReported - json_data.casesTimeline[i + 1].casesReported) / json_data.casesTimeline[i + 1].casesReported) * 100) + "% </td>\n" +
+                            "\n" +
+                            "            </tr>"
+                    } else {
+
+                    }
+
+
+                }
+            }
+            var iter_num = Object.keys(json_data.casesTimeline).length - 1
+            document.getElementById("table1").innerHTML += "<tr>\n" +
+                "                <td scope=\"row\">" + iter_num + "</td>\n" +
+                "                <th> " + json_data.casesTimeline[iter_num].recordedDate + "</th>\n" +
+                "                <td>" + json_data.casesTimeline[iter_num].casesReported + " </td>\n" +
+                "                <td>" + 0 + "</td>\n" +
+                "                <td>" + 0 + " </td>\n" +
+                "\n" +
+                "            </tr>"
+
+            //------------------------------------- Main Chart Select -------------------------------------
+            background_Color = [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ]
+            border_Color = [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ]
+            chart_options = {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                        ,
+                        gridLines: {
+                            display: false
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            }
+            //------------------------------------- Chart 1 -------------------------------------
+            var ctx = document.getElementById('chart1').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: label.reverse(),
+                    datasets: [{
+                        label: 'Avctive Cases ',
+                        data: data.reverse(),
+                        backgroundColor: background_Color,
+                        borderColor: border_Color,
+                        borderWidth: 4
+                    }]
+                },
+                options: chart_options
+            });
+
+            //------------------------------------- Chart 2 -------------------------------------
+            chart2_label = [Object.keys(json_data).length]
+            chart2_data = [Object.keys(json_data).length]
+            for (var i = Object.keys(json_data.casesTimeline).length - 1; i >= 0; i--) {
+                //object[i] = (Object.keys(data.casesTimeline[i]).length)
+                chart2_label[i] = json_data.casesTimeline[i].recordedDate
+                chart2_data[i] = json_data.casesTimeline[i].casesReported
+            }
+            var ctx = document.getElementById('chart2').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chart2_label.reverse(),
+                    datasets: [{
+                        label: 'Cases Reported',
+                        data: chart2_data.reverse(),
+                        backgroundColor: background_Color,
+                        borderColor: border_Color,
+                        borderWidth: 4
+                    }]
+                },
+                options: chart_options
+            });
+
+            //------------------------------------- Chart 3 -------------------------------------
+            chart3_label = [Object.keys(json_data).length]
+            chart3_data = [Object.keys(json_data).length]
+            var sum = 0
+            for (var i = Object.keys(json_data.casesTimeline).length - 1; i >= 0; i--) {
+                chart3_label[i] = json_data.casesTimeline[i].recordedDate
+                sum += json_data.casesTimeline[i].recoveriesReported
+                chart3_data[i] = sum
+            }
+            var ctx = document.getElementById('chart3').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chart3_label.reverse(),
+                    datasets: [{
+                        label: 'Cases Recovered',
+                        data: chart3_data.reverse(),
+                        backgroundColor: background_Color,
+                        borderColor: border_Color,
+                        borderWidth: 4
+                    }]
+                },
+                options: chart_options
+            });
+
+            //------------------------------------- Chart 4 -------------------------------------
+            chart4_label = [Object.keys(json_data).length]
+            chart4_data = [Object.keys(json_data).length]
+            for (var i = Object.keys(json_data.casesTimeline).length - 1; i >= 0; i--) {
+                //object[i] = (Object.keys(data.casesTimeline[i]).length)
+                chart4_label[i] = json_data.casesTimeline[i].recordedDate
+                chart4_data[i] = json_data.casesTimeline[i].recoveriesReported
+            }
+            var ctx = document.getElementById('chart4').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chart4_label.reverse(),
+                    datasets: [{
+                        label: 'Cases Recovered',
+                        data: chart4_data.reverse(),
+                        backgroundColor: background_Color,
+                        borderColor: border_Color,
+                        borderWidth: 4
+                    }]
+                },
+                options: chart_options
+            });
+
+            //------------------------------------- Chart 5 -------------------------------------
+            chart5_label = [Object.keys(json_data).length]
+            chart5_data = [Object.keys(json_data).length]
+            var sum = 0
+            for (var i = Object.keys(json_data.casesTimeline).length - 1; i >= 0; i--) {
+                chart5_label[i] = json_data.casesTimeline[i].recordedDate
+                sum += json_data.casesTimeline[i].deathsReported
+                chart5_data[i] = sum
+            }
+            var ctx = document.getElementById('chart5').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chart5_label.reverse(),
+                    datasets: [{
+                        label: 'Cases Died',
+                        data: chart5_data.reverse(),
+                        backgroundColor: background_Color,
+                        borderColor: border_Color,
+                        borderWidth: 4
+                    }]
+                },
+                options: chart_options
+            });
+
+            //------------------------------------- Chart 6 -------------------------------------
+            chart6_label = [Object.keys(json_data).length]
+            chart6_data = [Object.keys(json_data).length]
+            for (var i = Object.keys(json_data.casesTimeline).length - 1; i >= 0; i--) {
+                chart6_label[i] = json_data.casesTimeline[i].recordedDate
+                chart6_data[i] = json_data.casesTimeline[i].deathsReported
+            }
+            var ctx = document.getElementById('chart6').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chart6_label.reverse(),
+                    datasets: [{
+                        label: 'Cases Died',
+                        data: chart6_data.reverse(),
+                        backgroundColor: background_Color,
+                        borderColor: border_Color,
+                        borderWidth: 1
+                    }]
+                },
+                options: chart_options
+            });
+
+
+            //------------------------------------- Chart 7 -------------------------------------
+            var citites_num = []
+            var citites_name = []
+
+            Object.keys(cities.city).forEach((key, value) => {
+                    citites_num[value] = cities.city[key]
+                    citites_name[value] = key
+
+
+                }
+            )
+
+            var ctx = document.getElementById('chart7').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: citites_name,
+                    datasets: [{
+                        label: 'Cases In Cities',
+                        data: citites_num,
+                        backgroundColor: background_Color,
+                        borderColor: border_Color,
+                        borderWidth: 1
+                    }]
+                },
+                options: chart_options
+            });
+
+
+            //------------------------------------- Chart 0 -------------------------------------
+
+            var ctx = document.getElementById('chart0').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'Active',
+                        data: data,
+                        backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+                        borderColor: border_Color,
+                        borderWidth: 1
+                    }, {
+                        label: 'Recovered',
+                        data: chart3_data,
+                        backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+                        borderColor: border_Color,
+                        borderWidth: 1
+                    }, {
+                        label: 'Death',
+                        data: chart4_data,
+                        backgroundColor: ['rgba(255, 206, 86, 0.2)'],
+                        borderColor: border_Color,
+                        borderWidth: 1
+                    },]
+                },
+                options: chart_options
+            });
+
+
+            //------------------------------------- Chart 9 -------------------------------------
+
+
+            for (var i = 0; i < Object.keys(json_data.casesTimeline).length; i++) {
+                    document.getElementById("option_chart9").innerHTML += "<option value=\"" + i + "\">" + json_data.casesTimeline[i].recordedDate + "</option>"
+
+
+            }
+
+
+            document.getElementById("chart1-header").innerHTML += json_data.casesTimeline[0].recordedDate + " ]"
+            document.getElementById("stat-death").innerHTML += json_data.totalDeaths
+            document.getElementById("stat-recovered").innerHTML += json_data.totalRecovered
+            document.getElementById("stat-active").innerHTML += json_data.totalCases
+            document.getElementById("stat-average").innerHTML += Math.floor(json_data.totalCases / Object.keys(json_data.casesTimeline).length)
+            document.getElementById("stat-city").innerHTML += citites_name.length
+            document.getElementById("stat-high-city").innerHTML += Object.keys(cities.city).reduce((a, b) => cities.city[a] > cities.city[b] ? a : b) + " - " + cities.city[Object.keys(cities.city).reduce((a, b) => cities.city[a] > cities.city[b] ? a : b)]
+        }
+    };
+
+
+    //------------------------------------- Chart 9 -------------------------------------
+
+
+    function chooseDate(date) {
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                json_data = JSON.parse(this.responseText);
+            }
+        };
+        xhttp.open("GET", "https://api.jsonbin.io/b/5e95005951f5eb7806854727", true);
+        xhttp.send();
+
+
+        var date_data = json_data.casesTimeline[date]
+
+        document.getElementById("stat-data-date").innerHTML = "<div class=\"card text-white bg-success mb-3\" style=\"\">\n" +
+            "                    <div class=\"card-body\" id=\"stat-data-date1\">\n" +
+            "                        <p>Recovered</p><hr>\n" + date_data.recoveriesReported +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "                <div class=\"card text-white bg-warning mb-3\" style=\"\">\n" +
+            "                    <div class=\"card-body\" id=\"stat-data-date2\">\n" +
+            "                        <p>Active</p><hr>\n" + date_data.casesReported +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "                <div class=\"card text-white bg-danger mb-3\" style=\"\">\n" +
+            "                    <div class=\"card-body\" id=\"stat-data-date3\">\n" +
+            "                        <p>Deaaths</p><hr>\n" + date_data.deathsReported +
+            "                    </div>\n" +
+            "                </div>"
+
+
+        chart9_data = [date_data.casesReported, date_data.deathsReported, date_data.recoveriesReported]
+        chart9_label = ["Active", "Deaths", "Recovered"]
+        var ctx = document.getElementById('chart9').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: chart9_label.reverse(),
+                datasets: [{
+                    label: 'Cases Died',
+                    data: chart9_data.reverse(),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                        ,
+                        gridLines: {
+                            display: false
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+
+    xhttp.open("GET", "http://ccsitsys.com/covid-ksa/", true);
+    xhttp.send();
+
+    function chooseChart(chartNum) {
+        var text = "chart" + chartNum
+        document.getElementById(text).style.display = "block"
+        for (var i = 0; i < 8; i++) {
+            if ((i != parseInt(chartNum))) {
+                var text1 = "chart" + i
+                document.getElementById(text1).style.display = "none"
+            }
+        }
+    }
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
+</html>
+

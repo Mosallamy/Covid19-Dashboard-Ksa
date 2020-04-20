@@ -1,0 +1,670 @@
+{
+  "totalCases": 4033,
+  "totalDeaths": 52,
+  "totalRecovered": 720,
+  "casesTimeline": [
+    {
+      "recordedDate": "2020-04-11",
+      "casesReported": 382,
+      "deathsReported": 5,
+      "recoveriesReported": 35,
+      "casesByCity": {
+        "Riyadh": 76,
+        "Jeddah": 50,
+        "Makkah": 131,
+        "Madinah": 95,
+        "Dammam": 15,
+        "Yanbu": 5,
+        "Sabt Al Ayah": 3,
+        "Hofuf": 3,
+        "Khobar": 1,
+        "Taif": 1,
+        "Maisan": 1,
+        "Alshamly": 1
+      }
+    },
+    {
+      "recordedDate": "2020-04-10",
+      "casesReported": 364,
+      "deathsReported": 3,
+      "recoveriesReported": 19,
+      "casesByCity": {
+        "Riyadh": 69,
+        "Jeddah": 54,
+        "Makkah": 90,
+        "Madinah": 78,
+        "Qatif": 12,
+        "Dammam": 6,
+        "Dhahran": 2,
+        "Hofuf": 5,
+        "Taif": 4,
+        "Tabuk": 22,
+        "Buraydah": 9,
+        "Yanbu": 2,
+        "Ras Tanura": 1,
+        "Diryah": 1,
+        "Jubail": 1,
+        "Kharj": 3,
+        "Arar": 1,
+        "Qunfudah": 2,
+        "Al Henakiyah": 1,
+        "Khulais": 1
+      }
+    },
+    {
+      "recordedDate": "2020-04-09",
+      "casesReported": 355,
+      "deathsReported": 3,
+      "recoveriesReported": 35,
+      "casesByCity": {
+        "Riyadh": 83,
+        "Jeddah": 45,
+        "Makkah": 78,
+        "Madinah": 89,
+        "Qatif": 10,
+        "Hofuf": 2,
+        "Taif": 4,
+        "Tabuk": 26,
+        "Khamis Mushait": 1,
+        "Najran": 1,
+        "Bisha": 1,
+        "Albaha": 1,
+        "Yanbu": 4,
+        "Diryah": 4,
+        "Ahad Rafidah": 1,
+        "Kharj": 2,
+        "Unayzah": 2,
+        "Riyadh Al Khabra": 1
+      }
+    },
+    {
+      "recordedDate": "2020-04-08",
+      "casesReported": 137,
+      "deathsReported": 0,
+      "recoveriesReported": 16,
+      "casesByCity": {
+        "Riyadh": 37,
+        "Jeddah": 8,
+        "Makkah": 19,
+        "Madinah": 41,
+        "Qatif": 5,
+        "Dammam": 6,
+        "Hofuf": 3,
+        "Taif": 4,
+        "Tabuk": 1,
+        "Khamis Mushait": 1,
+        "Najran": 4,
+        "Buraydah": 1,
+        "Ras Tanura": 1,
+        "Sharorah": 1,
+        "Yanbu": 2,
+        "Samtah": 2
+      }
+    },
+    {
+      "recordedDate": "2020-04-07",
+      "casesReported": 272,
+      "deathsReported": 3,
+      "recoveriesReported": 64,
+      "casesByCity": {
+        "Riyadh": 84,
+        "Jeddah": 46,
+        "Makkah": 51,
+        "Madinah": 38,
+        "Qatif": 13,
+        "Dammam": 4,
+        "Dhahran": 3,
+        "Khobar": 2,
+        "Hofuf": 1,
+        "Taif": 1,
+        "Tabuk": 3,
+        "Khamis Mushait": 6,
+        "Jazan": 1,
+        "Abha": 4,
+        "Najran": 3,
+        "Buraydah": 3,
+        "Ras Tanura": 1,
+        "Sharorah": 4,
+        "Jubail": 2,
+        "Al Badaea" : 1,
+        "Al Ula": 1
+      }
+    },
+    {
+      "recordedDate": "2020-04-06",
+      "casesReported": 138,
+      "deathsReported": 4,
+      "recoveriesReported": 63,
+      "casesByCity": {
+        "Riyadh": 43,
+        "Jeddah": 33,
+        "Makkah": 17,
+        "Madinah": 13,
+        "Qatif": 9,
+        "Dammam": 6,
+        "Jazan": 6,
+        "Abha": 2,
+        "Khamis Mushait": 7,
+        "Al Khafji": 1,
+        "Ahad Rafidah": 1
+      }
+    },
+    {
+      "recordedDate": "2020-04-05",
+      "casesReported": 206,
+      "deathsReported": 5,
+      "recoveriesReported": 68,
+      "casesByCity": {
+        "Riyadh": 48,
+        "Jeddah": 38,
+        "Makkah": 73,
+        "Madinah": 4,
+        "Qatif": 9,
+        "Taif": 4,
+        "Tabuk": 2,
+        "Dhahran": 6,
+        "Dammam": 4,
+        "Khobar": 6,
+        "Abha": 2,
+        "Khamis Mushait": 4,
+        "Albaha": 1,
+        "Al Khafji": 1,
+        "Ras Tanura": 1,
+        "Diryah": 1,
+        "Hofuf": 2
+      }
+    },
+    {
+      "recordedDate": "2020-04-04",
+      "casesReported": 140,
+      "deathsReported": 4,
+      "recoveriesReported": 69,
+      "casesByCity": {
+        "Riyadh": 66,
+        "Jeddah": 21,
+        "Makkah": 9,
+        "Madinah": 2,
+        "Qatif": 5,
+        "Taif": 4,
+        "Tabuk": 5,
+        "Dhahran": 2,
+        "Dammam": 2,
+        "Khobar": 2,
+        "Abha": 1,
+        "Khamis Mushait": 1,
+        "Jazan": 1,
+        "Buraydah": 1,
+        "Jubail": 1,
+        "Al Majma'ah": 1,
+        "Diryah": 1,
+        "Hofuf": 15
+      }
+    },
+    {
+      "recordedDate": "2020-04-03",
+      "casesReported": 154,
+      "deathsReported": 4,
+      "recoveriesReported": 23,
+      "casesByCity": {
+        "Riyadh": 13,
+        "Jeddah": 30,
+        "Makkah": 21,
+        "Madinah": 34,
+        "Qatif": 6,
+        "Al Khafji": 2,
+        "Khamis Mushait": 1,
+        "Dhahran": 2,
+        "Dammam": 1,
+        "Khobar": 3,
+        "Ras Tanura": 1,
+        "Tabuk": 17,
+        "Buraydah": 9,
+        "Hofuf": 4,
+        "Ar Ras": 3,
+        "Najran": 3,
+        "Asir": 2,
+        "Al Wajh": 1,
+        "Duba": 1
+      }
+    },
+    {
+      "recordedDate": "2020-04-02",
+      "casesReported": 165,
+      "deathsReported": 5,
+      "recoveriesReported": 64,
+      "casesByCity": {
+        "Riyadh": 7,
+        "Jeddah": 30,
+        "Makkah": 48,
+        "Madinah": 46,
+        "Qatif": 5,
+        "Al Khafji": 9,
+        "Khamis Mushait": 6,
+        "Dhahran": 4,
+        "Dammam": 4,
+        "Abha": 2,
+        "Khobar": 1,
+        "Ras Tanura": 1,
+        "Ahad Rafidah": 1,
+        "Bisha": 1
+      }
+    },
+    {
+      "recordedDate": "2020-04-01",
+      "casesReported": 157,
+      "deathsReported": 6,
+      "recoveriesReported": 99,
+      "casesByCity": {
+        "Riyadh": 7,
+        "Jeddah": 3,
+        "Makkah": 78,
+        "Madinah": 55,
+        "Qatif": 6,
+        "Hofuf": 3,
+        "Tabuk": 2,
+        "Taif": 2,
+        "Al Henakiyah": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-31",
+      "casesReported": 110,
+      "deathsReported": 2,
+      "recoveriesReported": 50,
+      "casesByCity": {
+        "Riyadh": 33,
+        "Jeddah": 29,
+        "Makkah": 20,
+        "Madinah": 3,
+        "Dammam": 3,
+        "Dhahran": 2,
+        "Qatif": 7,
+        "Khobar": 4,
+        "Hufof": 2,
+        "Khamis Mushait": 1,
+        "Ras Tanura": 1,
+        "Jazan": 2,
+        "Al Badaea": 1,
+        "Abha": 1,
+        "Al Khafji": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-29",
+      "casesReported": 96,
+      "deathsReported": 4,
+      "recoveriesReported": 29,
+      "casesByCity": {
+        "Riyadh": 27,
+        "Jeddah": 12,
+        "Makkah": 7,
+        "Madinah": 14,
+        "Dammam": 23,
+        "Dhahran": 2,
+        "Qatif": 1,
+        "Tabuk": 1,
+        "Khobar": 4,
+        "Ras Tanura": 1,
+        "Saihat": 1,
+        "Hofuf": 1,
+        "Taif": 1,
+        "Khamis Mushait": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-28",
+      "casesReported": 99,
+      "deathsReported": 1,
+      "recoveriesReported": 2,
+      "casesByCity": {
+        "Riyadh": 41,
+        "Jeddah": 18,
+        "Makkah": 12,
+        "Madinah": 6,
+        "Qatif": 12,
+        "Tabuk": 3,
+        "Khobar": 4,
+        "Saihat": 1,
+        "Hofuf": 1,
+        "Khamis Mushait": 3,
+        "Abha": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-27",
+      "casesReported": 92,
+      "deathsReported": 0,
+      "recoveriesReported": 2,
+      "casesByCity": {
+        "Riyadh": 46,
+        "Jeddah": 7,
+        "Madinah": 19,
+        "Dammam": 4,
+        "Dhahran": 2,
+        "Qatif": 10,
+        "Khobar": 1,
+        "Hofuf": 1,
+        "Buraydah": 2
+      }
+    },
+    {
+      "recordedDate": "2020-03-26",
+      "casesReported": 112,
+      "deathsReported": 1,
+      "recoveriesReported": 4,
+      "casesByCity": {
+        "Riyadh": 34,
+        "Jeddah": 13,
+        "Makkah": 26,
+        "Madinah": 3,
+        "Dammam": 6,
+        "Dhahran": 1,
+        "Qatif": 5,
+        "Khobar": 2,
+        "Hofuf": 2,
+        "Taif": 18,
+        "Al Khafji": 1,
+        "Buraydah": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-25",
+      "casesReported": 133,
+      "deathsReported": 1,
+      "recoveriesReported": 1,
+      "casesByCity": {
+        "Riyadh": 83,
+        "Jeddah": 10,
+        "Madinah": 6,
+        "Dammam": 13,
+        "Dhahran": 1,
+        "Qatif": 6,
+        "Khobar": 5,
+        "Abha": 2,
+        "Najran": 4,
+        "Arar": 2,
+        "Jubail": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-24",
+      "casesReported": 205,
+      "deathsReported": 1,
+      "recoveriesReported": 9,
+      "casesByCity": {
+        "Riyadh": 69,
+        "Jeddah": 82,
+        "Madinah": 1,
+        "Dammam": 6,
+        "Dhahran": 2,
+        "Qatif": 6,
+        "Albaha": 12,
+        "Bisha": 8,
+        "Khobar": 2,
+        "Abha": 6,
+        "Najran": 8,
+        "Jazan": 3
+      }
+    },
+    {
+      "recordedDate": "2020-03-23",
+      "casesReported": 51,
+      "deathsReported": 0,
+      "recoveriesReported": 2,
+      "casesByCity": {
+        "Riyadh": 18,
+        "Makkah": 12,
+        "Dammam": 3,
+        "Qatif": 3,
+        "Bisha": 5,
+        "Taif": 6,
+        "Najran": 1,
+        "Jazan": 2,
+        "Qunfudah": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-22",
+      "casesReported": 119,
+      "deathsReported": 0,
+      "recoveriesReported": 1,
+      "casesByCity": {
+        "Riyadh": 31,
+        "Makkah": 72,
+        "Dammam": 4,
+        "Dhahran": 1,
+        "Qatif": 4,
+        "Al-Ahsa": 3,
+        "Khobar": 3,
+        "Qassim": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-21",
+      "casesReported": 48,
+      "deathsReported": 0,
+      "recoveriesReported": 8,
+      "casesByCity": {
+        "Riyadh": 36,
+        "Jeddah": 5,
+        "Makkah": 2,
+        "Dhahran": 1,
+        "Qatif": 1,
+        "Al-Ahsa": 2,
+        "Nairyah": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-20",
+      "casesReported": 70,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Riyadh": 49,
+        "Jeddah": 11,
+        "Makkah": 2,
+        "Madinah": 1,
+        "Dammam": 1,
+        "Dhahran": 1,
+        "Qatif": 1,
+        "Albaha": 1,
+        "Tabuk": 1,
+        "Bisha": 1,
+        "Hafr Al Batin": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-19",
+      "casesReported": 36,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Riyadh": 21,
+        "Jeddah": 1,
+        "Makkah": 3,
+        "Dammam": 3,
+        "Dhahran": 1,
+        "Qatif": 4,
+        "Asir": 1,
+        "Hofuf": 2
+      }
+    },
+    {
+      "recordedDate": "2020-03-18",
+      "casesReported": 67,
+      "deathsReported": 0,
+      "recoveriesReported": 2,
+      "casesByCity": {
+        "Riyadh": 19,
+        "Jeddah": 13,
+        "Makkah": 11,
+        "Qatif": 23,
+        "Asir": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-17",
+      "casesReported": 38,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Riyadh": 19,
+        "Jeddah": 3,
+        "Makkah": 3,
+        "Dhahran": 3,
+        "Qatif": 10
+      }
+    },
+    {
+      "recordedDate": "2020-03-16",
+      "casesReported": 15,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Riyadh": 4,
+        "Jeddah": 5,
+        "Makkah": 2,
+        "Dhahran": 1,
+        "Qatif": 1,
+        "Jazan": 2
+      }
+    },
+    {
+      "recordedDate": "2020-03-15",
+      "casesReported": 15,
+      "deathsReported": 0,
+      "recoveriesReported": 3,
+      "casesByCity": {
+        "Riyadh": 2,
+        "Jeddah": 2,
+        "Dammam": 1,
+        "Dhahran": 2,
+        "Qatif": 7,
+        "Khobar": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-14",
+      "casesReported": 17,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Riyadh": 12,
+        "Jeddah": 1,
+        "Qatif": 3,
+        "Al-Ahsa": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-13",
+      "casesReported": 24,
+      "deathsReported": 0,
+      "recoveriesReported": 1,
+      "casesByCity": {
+        "Riyadh": 1,
+        "Makkah": 15,
+        "Qatif": 8
+      }
+    },
+    {
+      "recordedDate": "2020-03-12",
+      "casesReported": 17,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Riyadh": 2,
+        "Jeddah": 1,
+        "Makkah": 11,
+        "Qatif": 2,
+        "Al-Ahsa": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-11",
+      "casesReported": 24,
+      "deathsReported": 0,
+      "recoveriesReported": 1,
+      "casesByCity": {
+        "Makkah": 21,
+        "Qatif": 3
+      }
+    },
+    {
+      "recordedDate": "2020-03-10",
+      "casesReported": 1,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Jeddah": 1
+      }
+    },
+    {
+      "recordedDate": "2020-03-09",
+      "casesReported": 5,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Makkah": 1,
+        "Qatif": 4
+      }
+    },
+    {
+      "recordedDate": "2020-03-08",
+      "casesReported": 4,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Riyadh": 1,
+        "Qatif": 4
+      }
+    },
+    {
+      "recordedDate": "2020-03-07",
+      "casesReported": 4,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Qatif": 4
+      }
+    },
+    {
+      "recordedDate": "2020-03-06",
+      "casesReported": 2,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Qatif": 2
+      }
+    },
+    {
+      "recordedDate": "2020-03-05",
+      "casesReported": 0,
+      "deathsReported": 0,
+      "recoveriesReported": 0
+    },
+    {
+      "recordedDate": "2020-03-04",
+      "casesReported": 4,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Qatif": 4
+      }
+    },
+    {
+      "recordedDate": "2020-03-03",
+      "casesReported": 0,
+      "deathsReported": 0,
+      "recoveriesReported": 0
+    },
+    {
+      "recordedDate": "2020-03-02",
+      "casesReported": 1,
+      "deathsReported": 0,
+      "recoveriesReported": 0,
+      "casesByCity": {
+        "Qatif": 1
+      }
+    }
+  ]
+}
