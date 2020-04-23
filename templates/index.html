@@ -47,7 +47,7 @@
 <div class="container-fluid ">
 
 
-    <div class=" card-group">
+    <div class="card-group">
         <div class="col-lg-9 col-md-12 card bg-dark">
             <div class="card-header">
                 <div class="d-flex justify-content-between" style="color:white">
@@ -187,7 +187,6 @@
         if (this.readyState == 4 && this.status == 200) {
             json_data = JSON.parse(this.responseText);
             var sum = 0
-            //alert(Object.keys(data.casesTimeline))
             data = [Object.keys(json_data).length]
             label = [Object.keys(json_data).length]
 
@@ -521,8 +520,6 @@
             Object.keys(cities.city).forEach((key, value) => {
                     citites_num[value] = cities.city[key]
                     citites_name[value] = key
-
-
                 }
             )
 
